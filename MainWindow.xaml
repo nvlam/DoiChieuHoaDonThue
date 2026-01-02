@@ -7,16 +7,76 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="510" Width="906">
     <Grid Margin="0,0,-326,-512" HorizontalAlignment="Right" Width="1340" Height="1156" VerticalAlignment="Bottom">
-        <TextBox x:Name="txtTepCongThue" HorizontalAlignment="Left" Margin="426,157,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="441" Height="26"/>
-        <TextBox x:Name="txtTepMisa" HorizontalAlignment="Left" Margin="426,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="441" Height="22"/>
-        <Label Content="Tệp excel từ Cổng thuế:" HorizontalAlignment="Left" Margin="270,157,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label Content="Tệp excel từ Phần mềm Kế toán:" HorizontalAlignment="Left" Margin="234,182,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Button x:Name="btnBrowseThue" Content="Chọn tệp" HorizontalAlignment="Left" Margin="872,160,0,0" VerticalAlignment="Top" Click="btnBrowseThue_Click"/>
-        <Button x:Name="btnBrowseMisa" Content="Chọn tệp" HorizontalAlignment="Left" Margin="872,188,0,0" VerticalAlignment="Top" Click="btnBrowseMisa_Click"/>
-        <Button x:Name="btnCompare" Content="Đối chiếu" HorizontalAlignment="Left" Margin="426,213,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.278,-2.127" Click="btnCompare_Click"/>
-        <DataGrid x:Name="DataGridKetQua" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="147,280,334,521"/>
+        <TextBox x:Name="txtTepCongThue" HorizontalAlignment="Left" Margin="426,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="441" Height="26"/>
+        <TextBox x:Name="txtTepMisa" HorizontalAlignment="Left" Margin="426,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="441" Height="22"/>
+        <Label Content="Tệp excel từ Cổng thuế:" HorizontalAlignment="Left" Margin="270,176,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="Tệp excel từ Phần mềm Kế toán:" HorizontalAlignment="Left" Margin="234,201,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Button x:Name="btnBrowseThue" Content="Chọn tệp" HorizontalAlignment="Left" Margin="872,179,0,0" VerticalAlignment="Top" Click="btnBrowseThue_Click"/>
+        <Button x:Name="btnBrowseMisa" Content="Chọn tệp" HorizontalAlignment="Left" Margin="872,207,0,0" VerticalAlignment="Top" Click="btnBrowseMisa_Click"/>
+        <Button x:Name="btnCompare" Content="Đối chiếu" HorizontalAlignment="Left" Margin="426,232,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.278,-2.127" Click="btnCompare_Click"/>
+        <DataGrid x:Name="DataGridKetQua"
+          Margin="147,280,334,521"
+          AutoGenerateColumns="False"
+          IsReadOnly="True"
+          CanUserAddRows="False"
+          HeadersVisibility="Column">
+
+            <!-- Tô màu dòng theo loại lỗi -->
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Style.Triggers>
+
+                        <!-- 🔴 Có ở Cổng Thuế, thiếu MISA -->
+                        <DataTrigger Binding="{Binding LoaiLoi}" Value="MissingMISA">
+                            <Setter Property="Background" Value="#FFCDD2"/>
+                        </DataTrigger>
+
+                        <!-- 🔵 Có ở MISA, thiếu Cổng Thuế -->
+                        <DataTrigger Binding="{Binding LoaiLoi}" Value="MissingCT">
+                            <Setter Property="Background" Value="#BBDEFB"/>
+                        </DataTrigger>
+
+                        <!-- 🟡 Chênh lệch tiền -->
+                        <DataTrigger Binding="{Binding LoaiLoi}" Value="AmountDiff">
+                            <Setter Property="Background" Value="#FFF9C4"/>
+                        </DataTrigger>
+
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+
+            <!-- Khai báo cột -->
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Header="Số hóa đơn"
+                            Binding="{Binding SoHoaDon}"
+                            Width="100"/>
+
+                <DataGridTextColumn Header="Ngày hóa đơn"
+                            Binding="{Binding NgayHoaDonHienThi}"
+                            Width="130"/>
+
+                <DataGridTextColumn Header="Tên khách hàng"
+                            Binding="{Binding TenKhachHangHienThi}"
+                            Width="200"/>
+
+                <DataGridTextColumn Header="Tiền Cổng Thuế"
+                            Binding="{Binding TongTienCongThue}"
+                            Width="140"/>
+
+                <DataGridTextColumn Header="Tiền MISA"
+                            Binding="{Binding DoanhThuMisa}"
+                            Width="140"/>
+
+                <DataGridTextColumn Header="Ghi chú"
+                            Binding="{Binding GhiChu}"
+                            Width="*"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
+
         <Label x:Name="lblKetQua" Content="Ket qua" HorizontalAlignment="Left" Margin="426,249,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.132,-0.268"/>
-        <Button x:Name="btnExport" Content="Xuất file excel kết quả đối chiếu" HorizontalAlignment="Left" Margin="531,213,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnExport" Content="Xuất file excel kết quả đối chiếu" HorizontalAlignment="Left" Margin="531,232,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
