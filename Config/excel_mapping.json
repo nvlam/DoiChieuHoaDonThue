@@ -1,0 +1,14 @@
+﻿{
+  "CongThue": {
+    "SoHoaDon": 3,
+    "NgayHoaDon": 4,
+    "TenKhachHang": 8,
+    "TongTien": 10
+  },
+  "Misa": {
+    "SoHoaDon": 2,
+    "NgayHoaDon": 3,
+    "TenKhachHang": 4,
+    "DoanhThu": 6
+  }
+}

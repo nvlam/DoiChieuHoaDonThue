@@ -6,15 +6,17 @@
         xmlns:local="clr-namespace:DoiChieuHoaDonThue"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <TextBox HorizontalAlignment="Left" Margin="186,74,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="202,138,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="59,74,0,0" VerticalAlignment="Top"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="78,147,0,0" VerticalAlignment="Top"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="430,74,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="430,138,0,0" VerticalAlignment="Top"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="97,217,0,0" VerticalAlignment="Top"/>
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,268,0,0"/>
+    <Grid Margin="-214,-210,-326,-512">
+        <TextBox x:Name="txtTepCongThue" HorizontalAlignment="Left" Margin="426,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" Height="26"/>
+        <TextBox x:Name="txtTepMisa" HorizontalAlignment="Left" Margin="426,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" Height="22"/>
+        <Label Content="Tệp excel từ Cổng thuế:" HorizontalAlignment="Left" Margin="270,225,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="Tệp excel từ Phần mềm Kế toán:" HorizontalAlignment="Left" Margin="234,250,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Button x:Name="btnBrowseThue" Content="Chọn tệp" HorizontalAlignment="Left" Margin="720,228,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <Button x:Name="btnBrowseMisa" Content="Chọn tệp" HorizontalAlignment="Left" Margin="720,256,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnCompare" Content="Đối chiếu" HorizontalAlignment="Left" Margin="426,281,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.278,-2.127"/>
+        <DataGrid x:Name="DataGridKetQua" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="234,357,334,598"/>
+        <Label x:Name="lblKetQua" Content="" HorizontalAlignment="Left" Margin="426,317,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.132,-0.268"/>
+        <Button x:Name="btnExport" Content="Xuất file excel kết quả đối chiếu" HorizontalAlignment="Left" Margin="531,281,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "Y:\\Hoa\\DoiChieuHoaDonThue\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{26FA6B93-9550-4391-9F60-A6C007958CDA}|DoiChieuHoaDonThue.csproj|y:\\hoa\\doichieuhoadonthue\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{26FA6B93-9550-4391-9F60-A6C007958CDA}|DoiChieuHoaDonThue.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{A92E1F11-D270-AD54-6641-FBD5AC63A59E}|DoiChieuHoaDonThue.csproj|y:\\hoa\\doichieuhoadonthue\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A92E1F11-D270-AD54-6641-FBD5AC63A59E}|DoiChieuHoaDonThue.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{26FA6B93-9550-4391-9F60-A6C007958CDA}|DoiChieuHoaDonThue.csproj|y:\\hoa\\doichieuhoadonthue\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{26FA6B93-9550-4391-9F60-A6C007958CDA}|DoiChieuHoaDonThue.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A92E1F11-D270-AD54-6641-FBD5AC63A59E}|DoiChieuHoaDonThue.csproj|y:\\hoa\\doichieuhoadonthue\\doichieuhoadonthue.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{A92E1F11-D270-AD54-6641-FBD5AC63A59E}|DoiChieuHoaDonThue.csproj|solutionrelative:doichieuhoadonthue.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A92E1F11-D270-AD54-6641-FBD5AC63A59E}|DoiChieuHoaDonThue.csproj|y:\\hoa\\doichieuhoadonthue\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A92E1F11-D270-AD54-6641-FBD5AC63A59E}|DoiChieuHoaDonThue.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,8 +22,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DoiChieuHoaDonThue",
+              "DocumentMoniker": "Y:\\Hoa\\DoiChieuHoaDonThue\\DoiChieuHoaDonThue.csproj",
+              "RelativeDocumentMoniker": "DoiChieuHoaDonThue.csproj",
+              "ToolTip": "Y:\\Hoa\\DoiChieuHoaDonThue\\DoiChieuHoaDonThue.csproj",
+              "RelativeToolTip": "DoiChieuHoaDonThue.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-01-02T01:18:44.063Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -43,7 +60,7 @@
         "Id": "8934d37e-4934-4e2d-a976-aec586bd2b5b",
         "Display": 0,
         "X": 7,
-        "Y": 74,
+        "Y": 87,
         "Width": 1172,
         "Height": 687,
         "WindowState": 0
@@ -55,7 +72,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "Y:\\Hoa\\DoiChieuHoaDonThue\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
