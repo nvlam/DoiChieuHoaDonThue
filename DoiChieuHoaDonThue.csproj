@@ -21,7 +21,8 @@
   <!-- Copy config file -->
   <ItemGroup>
     <Content Include="Config\excel_mapping.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    	<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    	<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
     </Content>
   </ItemGroup>
   <ItemGroup>
