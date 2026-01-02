@@ -5,18 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DoiChieuHoaDonThue"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid Margin="-214,-210,-326,-512">
-        <TextBox x:Name="txtTepCongThue" HorizontalAlignment="Left" Margin="426,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" Height="26"/>
-        <TextBox x:Name="txtTepMisa" HorizontalAlignment="Left" Margin="426,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" Height="22"/>
-        <Label Content="Tệp excel từ Cổng thuế:" HorizontalAlignment="Left" Margin="270,225,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label Content="Tệp excel từ Phần mềm Kế toán:" HorizontalAlignment="Left" Margin="234,250,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Button x:Name="btnBrowseThue" Content="Chọn tệp" HorizontalAlignment="Left" Margin="720,228,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-        <Button x:Name="btnBrowseMisa" Content="Chọn tệp" HorizontalAlignment="Left" Margin="720,256,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnCompare" Content="Đối chiếu" HorizontalAlignment="Left" Margin="426,281,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.278,-2.127"/>
-        <DataGrid x:Name="DataGridKetQua" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="234,357,334,598"/>
-        <Label x:Name="lblKetQua" Content="" HorizontalAlignment="Left" Margin="426,317,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.132,-0.268"/>
-        <Button x:Name="btnExport" Content="Xuất file excel kết quả đối chiếu" HorizontalAlignment="Left" Margin="531,281,0,0" VerticalAlignment="Top"/>
+        Title="MainWindow" Height="510" Width="906">
+    <Grid Margin="0,0,-326,-512" HorizontalAlignment="Right" Width="1340" Height="1156" VerticalAlignment="Bottom">
+        <TextBox x:Name="txtTepCongThue" HorizontalAlignment="Left" Margin="426,157,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="441" Height="26"/>
+        <TextBox x:Name="txtTepMisa" HorizontalAlignment="Left" Margin="426,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="441" Height="22"/>
+        <Label Content="Tệp excel từ Cổng thuế:" HorizontalAlignment="Left" Margin="270,157,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="Tệp excel từ Phần mềm Kế toán:" HorizontalAlignment="Left" Margin="234,182,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Button x:Name="btnBrowseThue" Content="Chọn tệp" HorizontalAlignment="Left" Margin="872,160,0,0" VerticalAlignment="Top" Click="btnBrowseThue_Click"/>
+        <Button x:Name="btnBrowseMisa" Content="Chọn tệp" HorizontalAlignment="Left" Margin="872,188,0,0" VerticalAlignment="Top" Click="btnBrowseMisa_Click"/>
+        <Button x:Name="btnCompare" Content="Đối chiếu" HorizontalAlignment="Left" Margin="426,213,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.278,-2.127" Click="btnCompare_Click"/>
+        <DataGrid x:Name="DataGridKetQua" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="147,280,334,521"/>
+        <Label x:Name="lblKetQua" Content="Ket qua" HorizontalAlignment="Left" Margin="426,249,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.132,-0.268"/>
+        <Button x:Name="btnExport" Content="Xuất file excel kết quả đối chiếu" HorizontalAlignment="Left" Margin="531,213,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

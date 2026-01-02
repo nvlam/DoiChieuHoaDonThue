@@ -1,4 +1,7 @@
-﻿using System.Text;
+﻿using System.Collections.ObjectModel;
+using System;
+using System.IO;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,14 +19,84 @@ namespace DoiChieuHoaDonThue
     /// </summary>
     public partial class MainWindow : Window
     {
+        private string _file1Path;
+        private string _file2Path;
+        private ObservableCollection<CompareResult> _results;
+
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void btnBrowseThue_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Hello, World!");
+            var picker = new Microsoft.Win32.OpenFileDialog
+            {
+                Filter = "Excel Files (*.xlsx;*.xls)|*.xlsx;*.xls"
+            };
+
+            if (picker.ShowDialog() == true)
+            {
+                _file1Path = picker.FileName;
+                txtTepCongThue.Text = _file1Path;
+            }
         }
-    }
+
+        private async void btnBrowseMisa_Click(object sender, RoutedEventArgs e)
+        {
+            var picker = new Microsoft.Win32.OpenFileDialog
+            {
+                Filter = "Excel Files (*.xlsx;*.xls)|*.xlsx;*.xls"
+            };
+
+            if (picker.ShowDialog() == true)
+            {
+                _file2Path = picker.FileName;
+                txtTepMisa.Text = _file2Path;
+            }
+        }
+
+        private void btnCompare_Click(object sender, RoutedEventArgs e)
+        {
+         
+            if (string.IsNullOrWhiteSpace(_file1Path) ||
+                string.IsNullOrWhiteSpace(_file2Path))
+            {
+                MessageBox.Show(
+                    "Please select both Excel files before comparing.",
+                    "Missing file",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Warning);
+                return;
+            }
+
+            // 1. Read Excel files (existing method)
+            var reader = new ExcelFileReaderService();
+            var dt1 = reader.ReadExcelToDataTable(_file1Path);
+            var dt2 = reader.ReadExcelToDataTable(_file2Path);
+
+            if (dt1 == null || dt2 == null)
+                return;
+
+            // 2. Load mapping from JSON
+            //var mapping = ExcelMappingLoader.Load("Config/excel_mapping.json");
+            string configPath = System.IO.Path.Combine( AppDomain.CurrentDomain.BaseDirectory,"Config","excel_mapping.json");
+
+            var mapping = ExcelMappingLoader.Load(configPath);
+
+
+            // 3. Compare
+            var compareService = new ExcelCompareService();
+            var compareList = compareService.Compare(dt1, dt2, mapping);
+
+            // 4. Bind to DataGrid
+            _results = new ObservableCollection<CompareResult>(compareList);
+            DataGridKetQua.ItemsSource = _results;
+
+            // 5. Show summary
+            lblKetQua.Content = $"Đối chiếu xong. Có {_results.Count} dòng khác nhau.";
+        }
+
+    
+}
 }
