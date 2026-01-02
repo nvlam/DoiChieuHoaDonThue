@@ -1,4 +1,6 @@
-﻿public static class ExcelValueHelper
+﻿using System;
+
+public static class ExcelValueHelper
 {
     public static decimal ToDecimalSafe(object value)
     {

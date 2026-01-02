@@ -1,5 +1,9 @@
 ﻿using System.Data;
 
+using System.Collections.Generic;
+
+using System.Linq;
+
 public class ExcelCompareService
 {
     public List<CompareResult> Compare(
