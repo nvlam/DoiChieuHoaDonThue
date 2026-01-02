@@ -97,6 +97,46 @@ namespace DoiChieuHoaDonThue
             lblKetQua.Content = $"Đối chiếu xong. Có {_results.Count} dòng khác nhau.";
         }
 
-    
-}
+        private void btnExport_Click(object sender, RoutedEventArgs e)
+        {
+            if (_results == null || _results.Count == 0)
+            {
+                MessageBox.Show(
+                    "Không có dữ liệu để xuất Excel.",
+                    "Thông báo",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+                return;
+            }
+
+            var dialog = new Microsoft.Win32.SaveFileDialog
+            {
+                Filter = "Excel file (*.xlsx)|*.xlsx",
+                FileName = $"KetQuaDoiChieu_{DateTime.Now:yyyyMMdd_HHmm}.xlsx"
+            };
+
+            if (dialog.ShowDialog() != true)
+                return;
+
+            try
+            {
+                var exporter = new ExcelExportService();
+                exporter.ExportCompareResults(_results, dialog.FileName);
+
+                MessageBox.Show(
+                    "Xuất file Excel thành công!",
+                    "Hoàn tất",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    $"Lỗi khi xuất Excel:\n{ex.Message}",
+                    "Lỗi",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
+        }
+    }
 }
